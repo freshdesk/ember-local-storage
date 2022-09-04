@@ -3,8 +3,8 @@ import BaseAdapter from './base';
 import { getStorage, _buildKey } from '../helpers/storage';
 import StorageArray from '../session/array';
 
-export default BaseAdapter.extend({
-  _storage: getStorage('session'),
+export default class SessionStorageAdapter extends BaseAdapter {
+  _storage = getStorage('session');
 
   _getIndex(type) {
     const indices = get(this, '_indices');
@@ -16,5 +16,5 @@ export default BaseAdapter.extend({
     }
 
     return indices[type];
-  },
-});
+  }
+}
