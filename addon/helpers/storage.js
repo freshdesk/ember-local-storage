@@ -18,7 +18,7 @@ function tryStorage(name) {
 
   // safari private mode exposes xStorage but fails on setItem
   try {
-    nativeStorage = (name === 'local') ? localStorage : sessionStorage;
+    nativeStorage = (name === 'local') ? fsaLocalStorage : fsaSessionStorage;
     nativeStorage.setItem('emberlocalstorage.test', 'ok');
     nativeStorage.removeItem('emberlocalstorage.test');
   } catch (e) {
